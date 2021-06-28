@@ -1,9 +1,17 @@
 {
   "name": "oldbutgold-website",
   "version": "0.0.0",
+  "proxy": "http://localhost:5000/",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "client-build": "cd views && npm run build",
+    "client": "cd views && npm start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"nodemon server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^2.0.7"
   },
   "dependencies": {
     "axios": "^0.21.1",
