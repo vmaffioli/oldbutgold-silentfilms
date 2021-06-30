@@ -5,11 +5,12 @@ const path = require('path');
 const app = express();
 
 // Load routes
-//const indexRoutes = require('./routes/index');
-//app.use('/', indexRoutes);
+const indexRoutes = require('./routes/index');
+app.use('/internal/', indexRoutes);
 
 //profile .
 app.use('/',express.static(path.join(__dirname, '../views/build/')));
+
 
 
 module.exports = app;
